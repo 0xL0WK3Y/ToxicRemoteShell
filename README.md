@@ -1,4 +1,4 @@
-# ToxicRAT
+# ToxicRemoteShell
 This tool allows one to execute commands to someone else's computer remotely. Currently it can only execute the basic shell commands.
 
 # How it works:
